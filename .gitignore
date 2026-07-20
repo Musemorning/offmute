@@ -2,6 +2,10 @@
 dist/
 # astro
 .astro/
+# lighthouse ci reports
+.lighthouseci/
+# stray chrome profile dirs a local lighthouse run can leave behind
+C:*
 # deps
 node_modules/
 # env & logs

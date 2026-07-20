@@ -8,7 +8,7 @@
   --structure: #183D2B; /* dark green — the main brand color (masthead, chips, buttons) */
   --on-structure: #F4EEE1;
   --on-structure-muted: #B9AE96;
-  --muted: #7C7568;
+  --muted: #70695E; /* soft warm gray; darkened from #7C7568 to clear WCAG AA (4.7:1 on paper) */
   --hairline: #B9AE96;
   --accent: #E23C22;
 
@@ -59,4 +59,15 @@ body {
 :focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
+}
+
+/* Honor a reduced-motion preference: no transitions, animations, or smooth
+   scrolling. A safety net so any motion added later degrades for free. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,0 +1,55 @@
+name: CI
+
+# Quality gate for every push and pull request:
+#   1. type-check the Astro + TypeScript sources
+#   2. build (runs the content validator + generates per-riff OG images)
+#   3. check that internal links / assets resolve in the built site
+#   4. audit the built pages with Lighthouse (perf / a11y / best-practices / SEO)
+#
+# Everything runs on the free GitHub-hosted runner. Cloudflare Pages still does
+# the real production build+deploy on push; this job is the pre-flight check.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check
+        run: npm run check
+
+      - name: Build (validate content + generate OG images)
+        run: npm run build
+
+      - name: Check internal links
+        run: npx --yes linkinator@6 ./dist --recurse --skip "offmute\.pages\.dev|forms\.gle"
+
+      - name: Lighthouse audit
+        run: npx --yes @lhci/cli@0.14.0 autorun
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          if-no-files-found: ignore
+          retention-days: 14

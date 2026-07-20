@@ -102,16 +102,57 @@ function initReader(): void {
   render(current, 'replace');
 
   // ---- Overlays (About + Share) ----
+  // Accessible modals: focus moves into the dialog on open, Tab is trapped
+  // inside it, the rest of the page is made inert (invisible to keyboard and
+  // screen-reader alike), and focus returns to the trigger on close.
   const aboutOverlay = byId('about-overlay');
   const shareOverlay = byId('share-overlay');
   const isOpen = (o: HTMLElement | null) => !!o && !o.hasAttribute('hidden');
   const anyOverlayOpen = () => isOpen(aboutOverlay) || isOpen(shareOverlay);
-  const open = (o: HTMLElement | null) => o && o.removeAttribute('hidden');
-  const close = (o: HTMLElement | null) => o && o.setAttribute('hidden', '');
+
+  const FOCUSABLE = 'a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])';
+  const background = (Array.from(document.body.children) as HTMLElement[]).filter(
+    (el) => el !== aboutOverlay && el !== shareOverlay
+      && !(el instanceof HTMLScriptElement) && !(el instanceof HTMLStyleElement),
+  );
+  let lastTrigger: HTMLElement | null = null;
+
+  const open = (o: HTMLElement | null, trigger?: HTMLElement | null) => {
+    if (!o) return;
+    lastTrigger = trigger ?? (document.activeElement as HTMLElement | null);
+    background.forEach((el) => { el.inert = true; });
+    o.removeAttribute('hidden');
+    (o.querySelector<HTMLElement>(FOCUSABLE) ?? o).focus();
+  };
+  const close = (o: HTMLElement | null) => {
+    if (!o || o.hasAttribute('hidden')) return;
+    o.setAttribute('hidden', '');
+    if (!anyOverlayOpen()) {
+      background.forEach((el) => { el.inert = false; });
+      const restore = lastTrigger && lastTrigger !== document.body ? lastTrigger : nextBtn;
+      restore?.focus();
+      lastTrigger = null;
+    }
+  };
   const closeAll = () => { close(aboutOverlay); close(shareOverlay); };
   [aboutOverlay, shareOverlay].forEach((o) => {
     if (o) o.addEventListener('click', (e) => { if (e.target === o) close(o); });
   });
+
+  // Keep Tab focus inside whichever overlay is open.
+  function trapTab(e: KeyboardEvent): void {
+    const o = isOpen(aboutOverlay) ? aboutOverlay : shareOverlay;
+    if (!o) return;
+    const items = Array.from(o.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
+      (el) => !el.hasAttribute('hidden') && el.offsetParent !== null,
+    );
+    if (items.length === 0) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey && active === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && active === last) { e.preventDefault(); first.focus(); }
+  }
 
   // ---- Next + card + keyboard ----
   nextBtn.addEventListener('click', goNext);
@@ -125,10 +166,18 @@ function initReader(): void {
   });
 
   document.addEventListener('keydown', (e) => {
-    if (anyOverlayOpen()) { if (e.key === 'Escape') closeAll(); return; }
+    if (anyOverlayOpen()) {
+      if (e.key === 'Escape') closeAll();
+      else if (e.key === 'Tab') trapTab(e);
+      return;
+    }
     const t = e.target as HTMLElement | null;
     if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
-    if (e.key === ' ' || e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
+    // Right arrow is a global "next" reading shortcut. Space advances too, but
+    // only when focus is NOT on a control, so it still activates focused buttons.
+    const onControl = !!(t && t.closest('button, a, [role="button"]'));
+    if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
+    else if (e.key === ' ' && !onControl) { e.preventDefault(); goNext(); }
     else if (e.key === 'Escape') closeAll();
   });
 
@@ -150,7 +199,7 @@ function initReader(): void {
   });
 
   // ---- About ----
-  byId('about-btn')?.addEventListener('click', () => open(aboutOverlay));
+  byId('about-btn')?.addEventListener('click', (e) => open(aboutOverlay, e.currentTarget as HTMLElement));
   byId('about-close')?.addEventListener('click', () => close(aboutOverlay));
 
   // ---- Share ----
@@ -173,7 +222,7 @@ function initReader(): void {
       if (typeof (navigator as unknown as { share?: unknown }).share === 'function') nativeBtn.removeAttribute('hidden');
       else nativeBtn.setAttribute('hidden', '');
     }
-    open(shareOverlay);
+    open(shareOverlay, byId('share-btn'));
   });
   byId('share-close')?.addEventListener('click', () => close(shareOverlay));
   byId('share-native')?.addEventListener('click', async () => {

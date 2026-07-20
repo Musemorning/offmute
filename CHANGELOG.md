@@ -10,6 +10,38 @@ place (with dated `[Updated …]` notes) to match the code.
 
 ## 2026-07-20
 
+### Added — engineering & tooling
+
+- **Per-riff social preview images.** Each `/r/<code>` permalink now unfurls with
+  its own branded card (the actual exchange, in the cream + green editorial
+  style) instead of one generic site card. Generated at build time by
+  `scripts/generate-og.mjs` (satori → SVG with text as vector paths → sharp →
+  PNG in `dist/og/`); no runtime, service, or cost. `og:image` / `twitter:image`
+  on riff pages point at the per-riff PNG; the homepage keeps the site-wide card.
+  - New deps: `satori`, `sharp`, `@fontsource/newsreader` (build-time).
+  - `ReaderLayout.astro` gained an `ogImagePath` prop; `build` now runs the
+    generator after `astro build`.
+
+- **CI pipeline + Lighthouse budgets.** `.github/workflows/ci.yml` runs on every
+  push/PR: type-check (`astro check`) → build (validate + OG) → internal-link
+  check (linkinator) → Lighthouse audit asserting **100/100/100/100**
+  (performance ≥ 0.95, accessibility / best-practices / SEO = 1.0) via
+  `lighthouserc.json`. Added `npm run check` and dev deps `@astrojs/check`,
+  `typescript`. README shows the CI + Lighthouse badges.
+
+### Changed — accessibility
+
+- **Modal dialogs (About / Share) are now properly accessible** (`reader.ts`):
+  focus moves into the dialog on open, Tab is trapped inside it, the rest of the
+  page is set `inert`, and focus returns to the triggering button on close.
+- **Fixed a keyboard trap on the Space shortcut.** Space advanced the riff even
+  when a button had focus, so it double-fired (advance + activate). Space now
+  advances only when focus is not on a control; ArrowRight stays a global "next".
+- **Darkened `--muted`** `#7C7568` → `#70695E` so label / ghost-button / tagline
+  text clears WCAG AA on paper (was 3.95:1, now 4.7:1). Verified: all four
+  Lighthouse categories score 100, including accessibility.
+- Added a `prefers-reduced-motion` safety net in `tokens.css`.
+
 ### Changed — behavior
 
 - **Riff randomization is now a shuffle-bag** (`offmute/src/scripts/reader.ts`).

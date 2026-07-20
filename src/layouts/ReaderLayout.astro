@@ -12,6 +12,7 @@ interface Props {
   seoTitle?: string;
   seoDescription?: string;
   note?: string;             // optional line (used by the 404 / retired fallback)
+  ogImagePath?: string;      // per-page social card; defaults to the site-wide brand card
 }
 
 const {
@@ -20,10 +21,11 @@ const {
   seoTitle = 'PM Off Mute',
   seoDescription = "The questions every PM dreads, and the comebacks you wish you'd sent.",
   note,
+  ogImagePath = '/og-image.png',
 } = Astro.props;
 
 const year = new Date().getFullYear();
-const ogImage = `${SITE_URL}/og-image.png`;
+const ogImage = new URL(ogImagePath, SITE_URL).href;
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
 
 const clientJson = JSON.stringify(

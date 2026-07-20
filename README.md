@@ -1,8 +1,12 @@
 # Off Mute
 
+[![CI](https://github.com/Musemorning/offmute/actions/workflows/ci.yml/badge.svg)](https://github.com/Musemorning/offmute/actions/workflows/ci.yml)
+![Lighthouse 100](https://img.shields.io/badge/Lighthouse-100%20%C3%97%204-183D2B)
+![Zero JS frameworks](https://img.shields.io/badge/runtime-one%20vanilla%20island-183D2B)
+
 The questions every PM dreads, and the comebacks you wish you'd sent. One riff per screen.
 
-A tiny static site built with [Astro](https://astro.build). No backend, no database, no accounts. Content lives in one JSON file; deploys free to Cloudflare.
+A tiny static site built with [Astro](https://astro.build). No backend, no database, no accounts. Content lives in one JSON file; deploys free to Cloudflare. Ships zero framework JavaScript: a single hand-written vanilla island (`src/scripts/reader.ts`) drives the whole reader.
 
 ## Run locally
 
@@ -25,7 +29,21 @@ npm run preview    # preview the production build
 
 Every push to `main` rebuilds and redeploys automatically. The build is fully static, so it also deploys unchanged to Cloudflare Workers static assets if you ever prefer that.
 
-## Add or edit a riff (once Story 1.2 lands)
+## Quality checks
+
+Run the same gate CI runs, locally:
+
+```bash
+npm run check      # type-check Astro + TypeScript
+npm run build      # validate content, build, generate per-riff OG images
+npm run og         # regenerate social cards only (into dist/og/)
+```
+
+The [CI workflow](.github/workflows/ci.yml) runs on every push and PR: type-check → build → internal-link check → a **Lighthouse audit that asserts 100/100/100/100** (performance, accessibility, best-practices, SEO). It's a pre-flight check; Cloudflare still does the production build+deploy.
+
+**Social preview images.** Every riff permalink (`/r/<code>`) unfurls on LinkedIn / Slack / X with its *own* branded card, showing that exchange. The cards are generated at build time by `scripts/generate-og.mjs` ([satori](https://github.com/vercel/satori) lays out the card and emits SVG with text as vector paths; [sharp](https://sharp.pixelplumbing.com) rasterises to PNG) into `dist/og/`. No runtime, no service, no cost. Add a riff, rebuild, its card appears.
+
+## Add or edit a riff
 
 Riffs live in `src/data/riffs.json` as objects:
 
@@ -42,14 +60,19 @@ Riffs live in `src/data/riffs.json` as objects:
 
 ```
 src/
-  data/riffs.json        # the content (Story 1.2)
+  data/riffs.json          # the content
   pages/
-    index.astro          # landing / reader (Story 1.1, 1.4, 1.5)
-    r/[code].astro        # per-riff permalink pages (Story 2.2)
-  components/             # RiffCard, About (Stories 1.4, 3.1)
-  scripts/reader.ts        # the one client island (Stories 1.5, 2.x)
-  lib/validate.ts          # build-time content gate (Story 1.2)
-  styles/tokens.css        # design tokens (Stories 1.1, 1.3)
+    index.astro            # landing / reader
+    r/[code].astro         # per-riff permalink pages (prerendered)
+    404.astro              # graceful retired/unknown fallback
+  layouts/ReaderLayout.astro  # page shell: head/meta, toolbar, overlays
+  components/              # Masthead, RiffCard
+  scripts/reader.ts        # the one vanilla client island
+  lib/validate.mjs         # build-time content gate
+  lib/site.ts              # shared constants (URLs, copyright)
+  styles/tokens.css        # design tokens
+scripts/generate-og.mjs    # build-time per-riff social cards → dist/og/
+lighthouserc.json          # Lighthouse CI budgets (asserts 100s)
 ```
 
 Built from the BMAD plan under `../_bmad-output/planning-artifacts/` (PRD, UX spines, architecture spine, epics).

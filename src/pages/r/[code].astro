@@ -12,5 +12,7 @@ export function getStaticPaths() {
 
 const { riff, riffs } = Astro.props as { riff: Riff; riffs: Riff[] };
 const seoDescription = `“${riff.prompt}” — “${riff.comeback}”`;
+// Per-riff social card generated at build time by scripts/generate-og.mjs.
+const ogImagePath = `/og/${riff.code}.png`;
 ---
-<ReaderLayout initial={riff} riffs={riffs} seoTitle="PM Off Mute" seoDescription={seoDescription} />
+<ReaderLayout initial={riff} riffs={riffs} seoTitle="PM Off Mute" seoDescription={seoDescription} ogImagePath={ogImagePath} />

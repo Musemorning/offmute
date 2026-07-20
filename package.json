@@ -6,12 +6,21 @@
   "scripts": {
     "dev": "astro dev",
     "validate": "node ./src/lib/validate.mjs",
-    "build": "node ./src/lib/validate.mjs && astro build",
+    "og": "node ./scripts/generate-og.mjs",
+    "check": "astro check",
+    "build": "node ./src/lib/validate.mjs && astro build && node ./scripts/generate-og.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource/newsreader": "^5.3.0",
     "astro": "^6",
-    "html-to-image": "^1.11.13"
+    "html-to-image": "^1.11.13",
+    "satori": "^0.28.1",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^6.0.0"
   }
 }
