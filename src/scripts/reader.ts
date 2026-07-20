@@ -212,9 +212,6 @@ function initReader(): void {
   byId('share-btn')?.addEventListener('click', () => {
     const url = shareUrl();
     const text = shareText();
-    const eu = encodeURIComponent(url);
-    setHref('share-x', `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${eu}`);
-    setHref('share-li', `https://www.linkedin.com/sharing/share-offsite/?url=${eu}`);
     setHref('share-wa', `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`);
     setHref('share-email', `mailto:?subject=${encodeURIComponent('A riff from Off Mute')}&body=${encodeURIComponent(text + '\n\n' + url)}`);
     const nativeBtn = byId('share-native');
