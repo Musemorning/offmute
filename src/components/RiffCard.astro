@@ -1,0 +1,66 @@
+---
+// The Riff Card — a two-column transcript (DESIGN.md).
+// Gutter holds right-aligned speaker labels; the text column holds the Prompt
+// (roman serif) and Comeback (italic serif) sharing one left edge.
+// reader.ts updates the text in place on Next (it is not re-instantiated).
+interface Props {
+  code: string;
+  stakeholder: string;
+  prompt: string;
+  comeback: string;
+}
+const { code, stakeholder, prompt, comeback } = Astro.props;
+---
+<article class="riff" id="riff-card" data-code={code} aria-live="polite" aria-atomic="true">
+  <span class="riff__label riff__stakeholder">{stakeholder.toUpperCase()}</span>
+  <p class="riff__prompt">{prompt}</p>
+  <span class="riff__label">PM</span>
+  <p class="riff__comeback">{comeback}</p>
+</article>
+
+<style>
+  .riff {
+    display: grid;
+    grid-template-columns: 56px 1fr; /* gutter + text column */
+    column-gap: 16px;
+    row-gap: 44px;                   /* the generous gap that lets the "oof" land */
+    align-items: baseline;
+  }
+  .riff__label {
+    font-family: var(--sans);
+    font-size: var(--fs-label);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;               /* labels hug the text column */
+  }
+  .riff__prompt {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: var(--fs-riff);
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .riff__comeback {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: var(--fs-riff);
+    line-height: 1.3;
+    color: var(--ink);
+    margin: 0;
+  }
+  @media (min-width: 768px) {
+    .riff {
+      grid-template-columns: 90px 1fr;
+      column-gap: 20px;
+      row-gap: 64px;
+    }
+    .riff__prompt,
+    .riff__comeback { font-size: var(--fs-riff-lg); }
+  }
+</style>

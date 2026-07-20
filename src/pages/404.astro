@@ -1,0 +1,12 @@
+---
+import ReaderLayout from '../layouts/ReaderLayout.astro';
+import riffsData from '../data/riffs.json';
+
+type Riff = { code: string; stakeholder: string; prompt: string; comeback: string; retired?: boolean };
+
+// Graceful fallback (AD-3): an unknown or retired /r/<code> lands here and
+// shows a fresh random riff rather than a broken page.
+const active = (riffsData as Riff[]).filter((r) => !r.retired);
+const initial = active[Math.floor(Math.random() * active.length)] ?? active[0];
+---
+<ReaderLayout initial={initial} riffs={active} note="That one's been retired. Here's another." />

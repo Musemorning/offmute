@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PM Off Mute">
+  <rect width="64" height="64" fill="#183D2B"/>
+  <text x="32" y="30" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="25" letter-spacing="1" fill="#F4EEE1">PM</text>
+  <text x="32" y="55" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="25" letter-spacing="1" fill="#F4EEE1">OM</text>
+</svg>

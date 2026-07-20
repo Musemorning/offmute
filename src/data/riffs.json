@@ -1,0 +1,452 @@
+[
+  {
+    "code": "71h",
+    "stakeholder": "CS",
+    "prompt": "When can I have this?",
+    "comeback": "Month 13."
+  },
+  {
+    "code": "fe8",
+    "stakeholder": "Sales",
+    "prompt": "Can we ship it Friday?",
+    "comeback": "We can ship something Friday."
+  },
+  {
+    "code": "6y5",
+    "stakeholder": "Sales",
+    "prompt": "Can we get a demo-ready version by Monday?",
+    "comeback": "We can get a Monday-ready version of the demo."
+  },
+  {
+    "code": "r21",
+    "stakeholder": "CS",
+    "prompt": "Is it done?",
+    "comeback": "It's 'done' the way my gym membership is 'active.'"
+  },
+  {
+    "code": "5de",
+    "stakeholder": "CS",
+    "prompt": "Can you prioritise it?",
+    "comeback": "Sure, I'll put it right between 'never' and 'lol no.'"
+  },
+  {
+    "code": "w1z",
+    "stakeholder": "Sales",
+    "prompt": "Can we fast-track it?",
+    "comeback": "Sure, I'll put a little rocket emoji in the ticket."
+  },
+  {
+    "code": "cyq",
+    "stakeholder": "Sales",
+    "prompt": "Can we fast-track it?",
+    "comeback": "We do have a fast lane. It merges back into the regular backlog about two miles later."
+  },
+  {
+    "code": "esh",
+    "stakeholder": "Sales",
+    "prompt": "Can we fast-track it?",
+    "comeback": "Absolutely, as soon as we fast-track the fast-track from yesterday."
+  },
+  {
+    "code": "0ar",
+    "stakeholder": "Sales",
+    "prompt": "Can we fast-track it?",
+    "comeback": "Sure. Sales-fast or 'has actually been estimated by Engineering' fast?"
+  },
+  {
+    "code": "lh9",
+    "stakeholder": "Exec",
+    "prompt": "Is this a priority?",
+    "comeback": "It's our absolute top priority, right next to other top priorities."
+  },
+  {
+    "code": "dl6",
+    "stakeholder": "CS",
+    "prompt": "The customer is threatening to churn.",
+    "comeback": "Bold of them to assume we had a retention strategy."
+  },
+  {
+    "code": "5o6",
+    "stakeholder": "Sales",
+    "prompt": "The customer is threatening to churn.",
+    "comeback": "So is my will to live, but we don't have a Jira ticket for that yet either."
+  },
+  {
+    "code": "mmg",
+    "stakeholder": "Sales",
+    "prompt": "I need this yesterday.",
+    "comeback": "Let me check if we have any yesterdays left."
+  },
+  {
+    "code": "2ty",
+    "stakeholder": "CS",
+    "prompt": "Can we make an exception?",
+    "comeback": "The next exception reset is beginning of the next month."
+  },
+  {
+    "code": "7o5",
+    "stakeholder": "Exec",
+    "prompt": "What's the timeline?",
+    "comeback": "What year works for you?"
+  },
+  {
+    "code": "zin",
+    "stakeholder": "CS",
+    "prompt": "The customer is unhappy.",
+    "comeback": "Join the queue. We provide sandwiches."
+  },
+  {
+    "code": "c42",
+    "stakeholder": "Exec",
+    "prompt": "Just add it to the roadmap.",
+    "comeback": "Consider it added."
+  },
+  {
+    "code": "ei5",
+    "stakeholder": "CS",
+    "prompt": "Just add it to the roadmap.",
+    "comeback": "Done. It now lives on the roadmap the way Catalonia lives in Spain."
+  },
+  {
+    "code": "e6o",
+    "stakeholder": "CS",
+    "prompt": "So it's basically built, right?",
+    "comeback": "Basically."
+  },
+  {
+    "code": "htn",
+    "stakeholder": "CS",
+    "prompt": "It's basically done, right?",
+    "comeback": "It's done the way that AI has generated an answer - All good as long as you don't check."
+  },
+  {
+    "code": "anm",
+    "stakeholder": "Sales",
+    "prompt": "The customer needs this to close the deal.",
+    "comeback": "Funny, Engineering also needs things to close their tickets. We should introduce them."
+  },
+  {
+    "code": "dh4",
+    "stakeholder": "CS",
+    "prompt": "The customer is still waiting for this feature.",
+    "comeback": "Such patience. I respect it."
+  },
+  {
+    "code": "ayf",
+    "stakeholder": "Sales",
+    "prompt": "Just say yes and we'll figure it out later.",
+    "comeback": "That's how we got the  three things we're currently un-figuring-out."
+  },
+  {
+    "code": "ato",
+    "stakeholder": "Exec",
+    "prompt": "Why is it delayed again?",
+    "comeback": "We're Agile, which means we can be behind schedule in two-week increments instead of one long disappointment."
+  },
+  {
+    "code": "hze",
+    "stakeholder": "Exec",
+    "prompt": "Is it on the roadmap?",
+    "comeback": "It's so far out on the roadmap it needs its own passport."
+  },
+  {
+    "code": "k3e",
+    "stakeholder": "CS",
+    "prompt": "Steve said it's simple.",
+    "comeback": "Steve also thinks Q3 has 5 months."
+  },
+  {
+    "code": "2kp",
+    "stakeholder": "CS",
+    "prompt": "The customer says it's a quick fix.",
+    "comeback": "Everyone's a senior engineer until the ticket's assigned to them."
+  },
+  {
+    "code": "h4d",
+    "stakeholder": "CS",
+    "prompt": "Steve says it'll only take a day.",
+    "comeback": "Steve also said he writes code in Japanese."
+  },
+  {
+    "code": "kdv",
+    "stakeholder": "CS",
+    "prompt": "Is the timeline accurate?",
+    "comeback": "It's accurate the way a fortune cookie is accurate."
+  },
+  {
+    "code": "pt9",
+    "stakeholder": "Sales",
+    "prompt": "Didn't we already decide this?",
+    "comeback": "We did. That was the old strategy. Keep up."
+  },
+  {
+    "code": "g8f",
+    "stakeholder": "Sales",
+    "prompt": "Why do PMs talk like this?",
+    "comeback": "Because crying doesn't fit in a Jira ticket."
+  },
+  {
+    "code": "zyg",
+    "stakeholder": "Sales",
+    "prompt": "Why are PMs like this?",
+    "comeback": "Because Jira doesn't have a field for 'I want to lie down.'"
+  },
+  {
+    "code": "rpn",
+    "stakeholder": "Sales",
+    "prompt": "Can we add just one more thing?",
+    "comeback": "Sure, that's what MVP stands for — Massively Varying Promises."
+  },
+  {
+    "code": "e8w",
+    "stakeholder": "Exec",
+    "prompt": "Sales says the roadmap doesn't reflect customer needs.",
+    "comeback": "Funny, the roadmap says the same thing about Sales' promises."
+  },
+  {
+    "code": "v53",
+    "stakeholder": "Exec",
+    "prompt": "Are we aligned on this?",
+    "comeback": "Completely. Sales is aligned with the customer. Product is aligned with reality."
+  },
+  {
+    "code": "79a",
+    "stakeholder": "Exec",
+    "prompt": "Let's get everyone aligned on scope.",
+    "comeback": "They're perfectly aligned the way two people are aligned in a tug-of-war."
+  },
+  {
+    "code": "r4o",
+    "stakeholder": "Exec",
+    "prompt": "Can we get everyone on the same page?",
+    "comeback": "We're on the same book."
+  },
+  {
+    "code": "otx",
+    "stakeholder": "Exec",
+    "prompt": "Get me alignment by EOD.",
+    "comeback": "I can get you alignment or I can get you EOD. They don't travel together."
+  },
+  {
+    "code": "gz0",
+    "stakeholder": "Exec",
+    "prompt": "Are we aligned on what caused the issue?",
+    "comeback": "Everyone agrees it's Product's fault, which is the fastest consensus this org has ever reached."
+  },
+  {
+    "code": "7yh",
+    "stakeholder": "Exec",
+    "prompt": "How do we stop this from happening again?",
+    "comeback": "Easy. Next time, blame Product before the meeting instead of during it. Saves everyone 20 mins."
+  },
+  {
+    "code": "l7i",
+    "stakeholder": "CS",
+    "prompt": "Do you ever say yes?",
+    "comeback": "Yes."
+  },
+  {
+    "code": "rat",
+    "stakeholder": "Sales",
+    "prompt": "Just give me a rough number.",
+    "comeback": "Rough like the estimate, or rough like how this conversation is going to go?"
+  },
+  {
+    "code": "0gw",
+    "stakeholder": "Exec",
+    "prompt": "It's basically already built, right?",
+    "comeback": "It's basically built the way a pile of lumber is basically a house."
+  },
+  {
+    "code": "bw6",
+    "stakeholder": "Sales",
+    "prompt": "Can we get a status update?",
+    "comeback": "Status: updating."
+  },
+  {
+    "code": "jwc",
+    "stakeholder": "Exec",
+    "prompt": "How's the sprint going?",
+    "comeback": "Great, if you don't count the sprint goal."
+  },
+  {
+    "code": "9na",
+    "stakeholder": "CS",
+    "prompt": "I want to escalate this.",
+    "comeback": "Sure, I'll move it from the pile to the taller pile."
+  },
+  {
+    "code": "yx0",
+    "stakeholder": "CS",
+    "prompt": "This is an important, we need this fixed now.",
+    "comeback": "Good to know we are an org of exclusively VIPs."
+  },
+  {
+    "code": "kv1",
+    "stakeholder": "CS",
+    "prompt": "Can you explain to the customer why this is delayed",
+    "comeback": "I can, but 'it's delayed because we have to building everything' wouldn't go well on a call."
+  },
+  {
+    "code": "7nj",
+    "stakeholder": "CS",
+    "prompt": "The customer says they were promised this in the sales demo.",
+    "comeback": "The demo promised a lot of things. So does the bus time table."
+  },
+  {
+    "code": "f3f",
+    "stakeholder": "CS",
+    "prompt": "The customer wants an escalation call with Product?",
+    "comeback": "Sure, I'll bring helmet and ballistic vest."
+  },
+  {
+    "code": "55v",
+    "stakeholder": "CS",
+    "prompt": "The customer said our competitor already has this.",
+    "comeback": "Cool, send the competitor's PM congratulations."
+  },
+  {
+    "code": "4y8",
+    "stakeholder": "Exec",
+    "prompt": "What's blocking this?",
+    "comeback": "Mostly the last thing that was blocking it."
+  },
+  {
+    "code": "8uz",
+    "stakeholder": "Exec",
+    "prompt": "Let's circle back on this.",
+    "comeback": "Sure, I'll add it to the roundabout of what we've discussed before."
+  },
+  {
+    "code": "agx",
+    "stakeholder": "CS",
+    "prompt": "The customer says trust is broken.",
+    "comeback": "Good, now it matches how Engineering's felt about me since last quarter."
+  },
+  {
+    "code": "rdy",
+    "stakeholder": "CS",
+    "prompt": "The customer's threatening to sue.",
+    "comeback": "Tell them they are not my first or last."
+  },
+  {
+    "code": "cjp",
+    "stakeholder": "CS",
+    "prompt": "Can you at least give the customer some hope?",
+    "comeback": "I can give them a ticket number."
+  },
+  {
+    "code": "nsx",
+    "stakeholder": "CS",
+    "prompt": "The customer said this should've been simple.",
+    "comeback": "It should've. Then Engineering opened the error file."
+  },
+  {
+    "code": "s7f",
+    "stakeholder": "CS",
+    "prompt": "Can we just hardcode it for now?",
+    "comeback": "'For now' is just another way of saying permanent."
+  },
+  {
+    "code": "e4l",
+    "stakeholder": "Exec",
+    "prompt": "Why can't we just add AI to it?",
+    "comeback": "We can. Which part of the product would you like to hallucinate?"
+  },
+  {
+    "code": "1ze",
+    "stakeholder": "Exec",
+    "prompt": "Why can't AI do that automatically?",
+    "comeback": "Let's invite AI to the next meeting and ask them."
+  },
+  {
+    "code": "e04",
+    "stakeholder": "Exec",
+    "prompt": "Can the AI just read the code?",
+    "comeback": "Getting there. Currently it can barely read the ticket."
+  },
+  {
+    "code": "3e4",
+    "stakeholder": "Exec",
+    "prompt": "Let's innovate, but stick to what's proven to work.",
+    "comeback": "Got it - Do the things that we always do."
+  },
+  {
+    "code": "2l4",
+    "stakeholder": "Exec",
+    "prompt": "We must have a quick win, but make sure it's impactful.",
+    "comeback": "Quick and impactful - Like microwaving an egg?"
+  },
+  {
+    "code": "wfh",
+    "stakeholder": "Exec",
+    "prompt": "We must bring more results, but the budget is the same as last year.",
+    "comeback": "Don't worry. I'll use the change in the swear jar."
+  },
+  {
+    "code": "vdy",
+    "stakeholder": "CS",
+    "prompt": "We have planned the customer's go-live date.",
+    "comeback": "Good that the customer has a date before the product has a feature."
+  },
+  {
+    "code": "8uf",
+    "stakeholder": "Sales",
+    "prompt": "We have showed customers this in a demo.",
+    "comeback": "Good. I haven't showed it to Engineering yet."
+  },
+  {
+    "code": "uqc",
+    "stakeholder": "Sales",
+    "prompt": "Just give me a date I can tell the customer.",
+    "comeback": "The date that you may tell the customer but I may never be able to tell Engineering?"
+  },
+  {
+    "code": "66r",
+    "stakeholder": "Sales",
+    "prompt": "We need a firm commitment date for the contract.",
+    "comeback": "Firm like my New Year resolution?"
+  },
+  {
+    "code": "mrq",
+    "stakeholder": "CS",
+    "prompt": "The customer is expecting an answer.",
+    "comeback": "Tell them it's a great question."
+  },
+  {
+    "code": "t36",
+    "stakeholder": "Sales",
+    "prompt": "Just give me a rough date.",
+    "comeback": "Q3."
+  },
+  {
+    "code": "3pl",
+    "stakeholder": "CS",
+    "prompt": "The customer wants to speak to whoever's responsible.",
+    "comeback": "That's a great question, I've been trying to figure that out too."
+  },
+  {
+    "code": "6fc",
+    "stakeholder": "CS",
+    "prompt": "The customer says the product doesn't do what they were told.",
+    "comeback": "Told by who? We have four different departments promising four different products."
+  },
+  {
+    "code": "cys",
+    "stakeholder": "Sales",
+    "prompt": "The customer says the product feels unfinished.",
+    "comeback": "It's unfinished like my bathroom floor, as the builder keeps getting new requirements."
+  },
+  {
+    "code": "8rb",
+    "stakeholder": "CS",
+    "prompt": "The customer wants to know if we are on it.",
+    "comeback": "We are. But the ticket keeps magically sliding down the backlog."
+  },
+  {
+    "code": "htf",
+    "stakeholder": "CS",
+    "prompt": "The customer says that the bug is affecting their whole company.",
+    "comeback": "It's affecting my whole day. We're bonding."
+  }
+]

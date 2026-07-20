@@ -1,0 +1,11 @@
+---
+import ReaderLayout from '../layouts/ReaderLayout.astro';
+import riffsData from '../data/riffs.json';
+
+type Riff = { code: string; stakeholder: string; prompt: string; comeback: string; retired?: boolean };
+
+const active = (riffsData as Riff[]).filter((r) => !r.retired);
+// Build-time random landing riff (varies per deploy, no client flash).
+const initial = active[Math.floor(Math.random() * active.length)] ?? active[0];
+---
+<ReaderLayout initial={initial} riffs={active} />

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="PM Off Mute">
+  <rect width="1200" height="630" fill="#183D2B"/>
+  <text x="600" y="235" text-anchor="middle" font-family="Georgia, 'Liberation Serif', 'DejaVu Serif', serif" font-weight="700" font-size="66" letter-spacing="6" fill="#F4EEE1">PM</text>
+  <rect x="548" y="272" width="104" height="5" fill="#F4EEE1"/>
+  <text x="600" y="410" text-anchor="middle" font-family="Georgia, 'Liberation Serif', 'DejaVu Serif', serif" font-weight="700" font-size="120" fill="#F4EEE1">Off Mute</text>
+  <text x="600" y="520" text-anchor="middle" font-family="'DejaVu Sans', 'Liberation Sans', sans-serif" font-size="27" letter-spacing="1" fill="#B9AE96">Because a little bit of self-deprecation goes a long way.</text>
+</svg>

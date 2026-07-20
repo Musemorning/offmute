@@ -1,0 +1,16 @@
+---
+import ReaderLayout from '../../layouts/ReaderLayout.astro';
+import riffsData from '../../data/riffs.json';
+
+type Riff = { code: string; stakeholder: string; prompt: string; comeback: string; retired?: boolean };
+
+// Prerender one page per active riff, each with its own social preview (AD-3).
+export function getStaticPaths() {
+  const active = (riffsData as Riff[]).filter((r) => !r.retired);
+  return active.map((r) => ({ params: { code: r.code }, props: { riff: r, riffs: active } }));
+}
+
+const { riff, riffs } = Astro.props as { riff: Riff; riffs: Riff[] };
+const seoDescription = `“${riff.prompt}” — “${riff.comeback}”`;
+---
+<ReaderLayout initial={riff} riffs={riffs} seoTitle="PM Off Mute" seoDescription={seoDescription} />

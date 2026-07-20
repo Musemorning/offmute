@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4200 700" role="img" aria-label="PM Off Mute, Dark PM Comedy">
+  <!-- Off Mute LinkedIn cover, wordmark-only variant. 4200x700 (6:1).
+       Centred lockup sized large + vertically centred so nothing sits near
+       the crop edge; descriptor in brand green for contrast at small sizes.
+       Placed right-of-centre so the round company logo (bottom-left) is clear. -->
+  <defs>
+    <style>
+      .serif { font-family: Georgia, 'Liberation Serif', 'DejaVu Serif', 'Times New Roman', serif; }
+      .sans  { font-family: 'DejaVu Sans', 'Liberation Sans', 'Segoe UI', Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- paper -->
+  <rect width="4200" height="700" fill="#F4EEE1"/>
+  <!-- thin structural frame -->
+  <rect x="0" y="0" width="4200" height="8" fill="#183D2B"/>
+  <rect x="0" y="698" width="4200" height="2" fill="#B9AE96"/>
+
+  <!-- ===== brand lockup — centred on x=2450, vertically centred ===== -->
+  <text x="2450" y="263" text-anchor="middle" class="serif" font-weight="700" font-size="62" letter-spacing="16" fill="#183D2B">PM</text>
+  <rect x="2380" y="269" width="140" height="7" fill="#183D2B"/>
+  <text x="2450" y="413" text-anchor="middle" class="serif" font-weight="700" font-size="160" letter-spacing="1" fill="#183D2B">Off Mute</text>
+  <!-- fake trademark badge — ®-shaped, but it smiles back -->
+  <g transform="translate(2825 300)" stroke="#183D2B" fill="#183D2B">
+    <circle r="27" fill="none" stroke-width="5"/>
+    <circle cx="-9.4" cy="-6.8" r="3.7"/>
+    <circle cx="9.4" cy="-6.8" r="3.7"/>
+    <path d="M-11.9 6.8 a11.9 11.9 0 0 0 23.8 0" fill="none" stroke-width="4.4" stroke-linecap="round"/>
+  </g>
+  <text x="2450" y="482" text-anchor="middle" class="sans" font-weight="600" font-size="40" letter-spacing="1" fill="#183D2B">Dark PM Comedy</text>
+</svg>

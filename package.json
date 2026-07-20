@@ -1,0 +1,17 @@
+{
+  "name": "offmute",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "validate": "node ./src/lib/validate.mjs",
+    "build": "node ./src/lib/validate.mjs && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6",
+    "html-to-image": "^1.11.13"
+  }
+}
