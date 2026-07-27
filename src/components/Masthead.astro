@@ -15,7 +15,9 @@ const tagline = 'Because a little bit of self-deprecation goes a long way.';
   .masthead__inner {
     max-width: var(--measure);
     margin: 0 auto;
-    padding: 22px var(--margin-mobile);
+    /* Indent the wordmark to the shared left spine (aligns with the exchange
+       text and the controls below). */
+    padding: 22px var(--margin-mobile) 22px calc(var(--margin-mobile) + var(--spine-indent));
   }
   .masthead__wordmark {
     font-family: var(--serif);
@@ -35,6 +37,8 @@ const tagline = 'Because a little bit of self-deprecation goes a long way.';
     margin: 10px 0 0;
   }
   @media (min-width: 768px) {
-    .masthead__inner { padding: 22px var(--margin-desktop); }
+    .masthead__inner {
+      padding: 22px var(--margin-desktop) 22px calc(var(--margin-desktop) + var(--spine-indent));
+    }
   }
 </style>
