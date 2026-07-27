@@ -8,6 +8,36 @@ spine, epics) are kept in a separate private planning repo, frozen at their
 this log records every deviation made since, and those specs have been edited in
 place (with dated `[Updated …]` notes) to match the code.
 
+## 2026-07-27
+
+### Added — content
+
+- **+22 riffs (75 → 97).** New Sales / CS / Exec exchanges appended to
+  `src/data/riffs.json` (each with a fresh unique 3-char code), the private
+  `Riffy.txt` master list, and `riff-tracker.csv`. `npm run validate` confirms
+  97 riffs / 97 unique codes.
+
+### Added — reader
+
+- **Previous control.** The reader now has an on-screen **Previous** button (and
+  keyboard **←**) beside Next that returns to the last riff seen. This makes
+  concrete the "Back affordance" that EXPERIENCE.md already anticipated but the
+  code had never surfaced — until now only browser Back went backward.
+  - **One history model.** Previous and ← call `history.back()`, reusing the
+    existing `pushState`/`popstate` machinery (AD-3/AD-5); the permalink URL
+    stays canonical and browser Back/Forward stay consistent. No separate
+    in-memory history stack.
+  - **Disabled at the landing riff.** The island tracks in-site depth (stamped
+    onto `history.state`, so it survives reload) and disables Previous when
+    there is nothing to go back to. This is the one control that is legitimately
+    disabled — distinct from Next's never-disabled rule.
+  - Secondary/outlined styling (transparent + 1px ink border, mirroring an
+    inactive chip) so Next stays the primary action; it never takes the one
+    vermilion accent.
+  - Specs updated in place: `epics.md` (FR2, AD-5, Story 1.5, UX-DR11),
+    `EXPERIENCE.md` (primitives, microcopy, component inventory, a11y),
+    `DESIGN.md` (`previous-button` token + component inventory + composition).
+
 ## 2026-07-20
 
 ### Added — engineering & tooling
