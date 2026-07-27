@@ -448,5 +448,137 @@
     "stakeholder": "CS",
     "prompt": "The customer says that the bug is affecting their whole company.",
     "comeback": "It's affecting my whole day. We're bonding."
+  },
+  {
+    "code": "vm6",
+    "stakeholder": "Sales",
+    "prompt": "It would be really great if we have this feature!",
+    "comeback": "Great, can it be great in writing, like on a contract?"
+  },
+  {
+    "code": "7rz",
+    "stakeholder": "Sales",
+    "prompt": "Can we promise Q2?",
+    "comeback": "We can. But delivering in Q2 is an entirely different conversation."
+  },
+  {
+    "code": "1b1",
+    "stakeholder": "Sales",
+    "prompt": "Imagine we have this feature — can we commit to the RFP?",
+    "comeback": "Imagine got John Lennon killed. I wouldn't go that far."
+  },
+  {
+    "code": "eer",
+    "stakeholder": "Sales",
+    "prompt": "Why does development take so long?",
+    "comeback": "We take many tea breaks."
+  },
+  {
+    "code": "az2",
+    "stakeholder": "CS",
+    "prompt": "The customer wants a call ASAP.",
+    "comeback": "Sure, should I bring the commitment or just the apology?"
+  },
+  {
+    "code": "204",
+    "stakeholder": "CS",
+    "prompt": "Is this request being overlooked?",
+    "comeback": "No, we're closely monitoring how it slides down the backlog."
+  },
+  {
+    "code": "ifq",
+    "stakeholder": "CS",
+    "prompt": "The customer is frustrated, but we managed to find a workaround.",
+    "comeback": "Great. Let's document it in case we accidentally fix it."
+  },
+  {
+    "code": "mhr",
+    "stakeholder": "CS",
+    "prompt": "The customer says the dashboard is very slow.",
+    "comeback": "So is the ticket about the dashboard being slow."
+  },
+  {
+    "code": "7v1",
+    "stakeholder": "CS",
+    "prompt": "Is there a workaround we can give them?",
+    "comeback": "We can give them a person to work around it."
+  },
+  {
+    "code": "rk2",
+    "stakeholder": "Exec",
+    "prompt": "Let's think outside the box.",
+    "comeback": "Happy to. The box is on the roadmap too."
+  },
+  {
+    "code": "llc",
+    "stakeholder": "Exec",
+    "prompt": "Let's touch base next week.",
+    "comeback": "By then it'll be a different base to touch."
+  },
+  {
+    "code": "c9g",
+    "stakeholder": "Exec",
+    "prompt": "Let's circle back on this.",
+    "comeback": "We've circled so many times we're basically in orbit."
+  },
+  {
+    "code": "7n3",
+    "stakeholder": "Exec",
+    "prompt": "Is this scalable?",
+    "comeback": "It scales beautifully. Just not yet, and not cheaply."
+  },
+  {
+    "code": "fqc",
+    "stakeholder": "Exec",
+    "prompt": "Let's align on the strategy.",
+    "comeback": "We're aligned. We're just pointing in different directions together."
+  },
+  {
+    "code": "ivg",
+    "stakeholder": "Exec",
+    "prompt": "What's the ROI on this?",
+    "comeback": "Return's strong. The 'I' part is where we're stuck."
+  },
+  {
+    "code": "3p3",
+    "stakeholder": "Exec",
+    "prompt": "We need to move the needle.",
+    "comeback": "The needle's fine. It's the haystack we've lost."
+  },
+  {
+    "code": "99v",
+    "stakeholder": "Exec",
+    "prompt": "Let's take this offline.",
+    "comeback": "Everything's offline. That's the whole problem."
+  },
+  {
+    "code": "azd",
+    "stakeholder": "Exec",
+    "prompt": "Can we leverage AI here?",
+    "comeback": "Absolutely. It can generate the roadmap we won't follow."
+  },
+  {
+    "code": "mwp",
+    "stakeholder": "Exec",
+    "prompt": "Let's be more agile about it.",
+    "comeback": "We're very agile. We change direction every standup."
+  },
+  {
+    "code": "t08",
+    "stakeholder": "Exec",
+    "prompt": "Where are we on the OKRs?",
+    "comeback": "Objectively, key results pending."
+  },
+  {
+    "code": "4cy",
+    "stakeholder": "Exec",
+    "prompt": "Let's put a pin in it.",
+    "comeback": "There are so many pins the board is now load-bearing."
+  },
+  {
+    "code": "nwe",
+    "stakeholder": "Exec",
+    "prompt": "Let's work smart, do more with less.",
+    "comeback": "We are doing it. QA definitely have more to flag these days."
   }
 ]
