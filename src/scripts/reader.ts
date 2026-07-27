@@ -20,6 +20,7 @@ function initReader(): void {
   const dataEl = byId('riffs-data');
   const card = byId('riff-card');
   const nextBtn = byId('next-btn');
+  const prevBtn = byId('prev-btn') as HTMLButtonElement | null;
   if (!dataEl || !card || !nextBtn) return;
 
   let riffs: Riff[] = [];
@@ -38,6 +39,14 @@ function initReader(): void {
   let filter = ''; // '' = All, else 'Sales' | 'CS' | 'Exec'
   let current = Math.max(0, riffs.findIndex((r) => r.code === card.dataset.code));
 
+  // In-site history depth: how many Next steps we've pushed past the landing
+  // riff. 0 means we're at the landing riff and Previous is disabled (going
+  // further back would leave the site). Survives reload by reading the entry
+  // we (or a prior page) stamped onto history.state.
+  const stateDepth = (s: unknown): number =>
+    (s && typeof (s as { depth?: unknown }).depth === 'number') ? (s as { depth: number }).depth : 0;
+  let depth = stateDepth(history.state);
+
   const codeUrl = (code: string) => `${SITE_URL}/r/${code}`;
 
   function render(i: number, mode: 'push' | 'replace' | 'none' = 'none'): void {
@@ -47,8 +56,16 @@ function initReader(): void {
     comebackEl!.textContent = r.comeback;
     card!.dataset.code = r.code;
     const path = `/r/${r.code}`;
-    if (mode === 'push') history.pushState({ code: r.code }, '', path);
-    else if (mode === 'replace') history.replaceState({ code: r.code }, '', path);
+    const state = { code: r.code, depth };
+    if (mode === 'push') history.pushState(state, '', path);
+    else if (mode === 'replace') history.replaceState(state, '', path);
+  }
+
+  function updatePrev(): void {
+    if (!prevBtn) return;
+    const disabled = depth <= 0;
+    prevBtn.disabled = disabled;
+    prevBtn.setAttribute('aria-disabled', disabled ? 'true' : 'false');
   }
 
   function pool(): number[] {
@@ -95,11 +112,21 @@ function initReader(): void {
 
   function goNext(): void {
     current = pickRandom();
+    depth++;
     render(current, 'push');
+    updatePrev();
+  }
+
+  // Previous: step back through the in-place History entries pushed on Next.
+  // Reuses native browser history (AD-3/AD-5) — the popstate handler re-renders
+  // and restores depth. Disabled at the landing riff so it never leaves the site.
+  function goPrev(): void {
+    if (depth > 0) history.back();
   }
 
   // Canonicalize the landing URL to the current riff (AD-3).
   render(current, 'replace');
+  updatePrev();
 
   // ---- Overlays (About + Share) ----
   // Accessible modals: focus moves into the dialog on open, Tab is trapped
@@ -156,13 +183,14 @@ function initReader(): void {
 
   // ---- Next + card + keyboard ----
   nextBtn.addEventListener('click', goNext);
+  prevBtn?.addEventListener('click', goPrev);
   card.addEventListener('click', goNext);
 
-  window.addEventListener('popstate', () => {
+  window.addEventListener('popstate', (e) => {
     const m = location.pathname.match(/\/r\/([^/]+)/);
     if (!m) return;
     const i = riffs.findIndex((r) => r.code === m[1]);
-    if (i >= 0) { current = i; render(current); }
+    if (i >= 0) { current = i; depth = stateDepth(e.state); render(current); updatePrev(); }
   });
 
   document.addEventListener('keydown', (e) => {
@@ -177,6 +205,7 @@ function initReader(): void {
     // only when focus is NOT on a control, so it still activates focused buttons.
     const onControl = !!(t && t.closest('button, a, [role="button"]'));
     if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev(); }
     else if (e.key === ' ' && !onControl) { e.preventDefault(); goNext(); }
     else if (e.key === 'Escape') closeAll();
   });
