@@ -34,11 +34,18 @@
   --margin-mobile: 20px;
   --margin-desktop: 56px;
   --measure: 680px;    /* broadsheet reading measure */
+  --spine-indent: 72px; /* transcript label gutter + column gap (mobile); the
+                           single left spine that masthead / chips / controls
+                           align to, so they line up with the exchange text */
 
   /* Shape */
   --radius: 2px;
   --rule-heavy: 4px;
   --rule-hairline: 1px;
+}
+
+@media (min-width: 768px) {
+  :root { --spine-indent: 110px; } /* gutter + gap at desktop scale */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
