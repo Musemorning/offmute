@@ -31,12 +31,29 @@ place (with dated `[Updated …]` notes) to match the code.
     onto `history.state`, so it survives reload) and disables Previous when
     there is nothing to go back to. This is the one control that is legitimately
     disabled — distinct from Next's never-disabled rule.
-  - Secondary/outlined styling (transparent + 1px ink border, mirroring an
-    inactive chip) so Next stays the primary action; it never takes the one
-    vermilion accent.
-  - Specs updated in place: `epics.md` (FR2, AD-5, Story 1.5, UX-DR11),
-    `EXPERIENCE.md` (primitives, microcopy, component inventory, a11y),
-    `DESIGN.md` (`previous-button` token + component inventory + composition).
+### Changed — reader layout & footer
+
+- **Single left spine.** The masthead wordmark, the filter chips, the exchange
+  text, and the Prev/Next controls now all align to one left edge — the riff
+  **text column** (`--spine-indent`: 72px mobile / 110px desktop = the label
+  gutter + column-gap). Only the muted speaker labels sit out in the gutter to
+  its left. Previously the masthead + chips sat on the gutter edge while the
+  text was indented, so nothing shared a spine.
+  - Fixed a bug where `.toolbar` shrink-wrapped to the chips and auto-centered
+    (a `margin:auto` flex item with no `width`); it now fills the measure and
+    aligns the chips to the spine, as the spec always intended.
+- **Subtle text-style navigation.** Prev/Next are no longer boxed buttons —
+  they're text-style caps with small arrows: "NEXT ›" in `--ink` with the `›`
+  in brand green `--structure`; "‹ PREVIOUS" quieter in `--muted` (dimmed when
+  disabled). The one vermilion accent is now held in reserve (no longer on the
+  Next arrow).
+- **Split footer.** Prev/Next sit **above** the hairline rule; About/Share/Save
+  sit **below** it, **right-aligned** to the measure — navigation left,
+  utilities right, rule between.
+- Specs updated in place: `epics.md` (FR2, AD-5, Story 1.5, UX-DR5, UX-DR11),
+  `EXPERIENCE.md` (primitives, microcopy, component inventory, a11y, desktop
+  alignment), `DESIGN.md` (`next-button`/`previous-button` tokens, accent rule,
+  component inventory, composition spine).
 
 ## 2026-07-20
 
