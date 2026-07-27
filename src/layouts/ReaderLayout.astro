@@ -91,7 +91,10 @@ const FILTERS = [
       <div class="reader__footer">
         <hr class="rule-hairline" />
         <div class="footer__row">
-          <button id="next-btn" class="next" type="button">Next</button>
+          <div class="nav">
+            <button id="prev-btn" class="prev" type="button" disabled aria-disabled="true">Previous</button>
+            <button id="next-btn" class="next" type="button">Next</button>
+          </div>
           <div class="actions">
             <button id="about-btn" class="ghost" type="button">About</button>
             <button id="share-btn" class="ghost" type="button">Share</button>
@@ -181,12 +184,24 @@ const FILTERS = [
       .reader__footer { padding-top: var(--sp-5); }
       .rule-hairline { height: var(--rule-hairline); background: var(--hairline); border: 0; margin: 0 0 var(--sp-4); }
       .footer__row { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap; }
+      .nav { display: flex; align-items: center; gap: var(--sp-3); }
       .next {
         background: var(--structure); color: var(--on-structure);
         font-family: var(--sans); font-size: var(--fs-button); font-weight: 600;
         line-height: 1; letter-spacing: 0.18em; text-transform: uppercase;
         padding: 15px 22px; border: 0; border-radius: var(--radius); cursor: pointer;
       }
+      /* Previous: secondary/outlined (the design system's transparent + 1px-ink
+         treatment). Disabled at the landing riff, when there is nothing to go
+         back to. */
+      .prev {
+        background: transparent; color: var(--ink);
+        font-family: var(--sans); font-size: var(--fs-button); font-weight: 600;
+        line-height: 1; letter-spacing: 0.18em; text-transform: uppercase;
+        padding: 14px 21px; border: 1px solid var(--ink); border-radius: var(--radius); cursor: pointer;
+      }
+      .prev:hover:not(:disabled) { background: var(--structure); color: var(--on-structure); border-color: var(--structure); }
+      .prev:disabled { opacity: 0.3; cursor: default; }
       .actions { display: flex; gap: var(--sp-4); }
       .ghost {
         background: none; border: 0; padding: 6px 2px; cursor: pointer;
